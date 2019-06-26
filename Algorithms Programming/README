@@ -1,0 +1,5 @@
+Description of problems p1, p2, p3
+
+p1: The number of switches between characters of a string we need to make in order to make it a palindrome.
+p2: Minimum number of adjustments to adjust a message to be the same as any the versions on every position in the sequence.
+p3: Minimum length of the links resulted by linking pins 0 with 1 and 1 with 0.
