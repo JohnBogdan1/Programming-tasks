@@ -1,0 +1,26 @@
+
+Exercitiul 1
+	Pentru implementarea Masinii Turing, am folosit o matrice de tip Celula, 
+care are ca informatii in fiecare celula starea urmatoare(stare_urm), caracterul scris(char_w) 
+si deplasarea(deplasare). Cand citesc liniile corespunzatoare matricei de tranzitie din fisier, 
+umplu aceste campuri cu informatiile respective. Celula (i, j) din matrice este corespunzatoare 
+tranzitiei din starea i, la citirea caracterului cj de pe banda(i - linia, j - coloana).
+Banda am citit-o intr-un string alocat dinamic de dimensiune maxim 100(este specificat faptul ca sunt 
+suficiente maxim 100 de caractere pentru banda).
+	
+	Parcurg banda folosind o variabila cursor care este initializata cu 1 pentru a incepe 
+citirea de la al doilea caracter al benzii. Starea initiala este 0. Pentru starea curenta in care ma aflu 
+si caracterul curent citit de pe banda, ma duc in matrice la linia si coloana respectiva si preiau 
+starea urmatoare, caracterul pe care il scriu pe banda in locul caracterului citit(la pozitia indicata de cursor) 
+si deplasarea(R, L, H). Daca starea urmatoare este -1 ma opresc si returnez "Eroare!". Daca starea urmatoare se
+afla printre starile finale, returnez banda. Daca deplasarea este 'R' incrementez cursor, altfel daca deplasarea este 'L',
+decrementez cursor, altfel nu se modifica.
+
+Exercitiul 2
+	Pentru a determina care cuvant este mai mare, compar caracterele aflate pe aceeasi pozitie din cele doua cuvinte(primul caracter 
+din primul cuvant cu primul caracter din al doilea s.a.m.d.). Compar caracterele din ambele cuvinte pana gasesc ca sunt diferite. 
+Daca in primul cuvant citesc 1/0 (pun # pe acea pozitie) si in al doilea citesc 0/1, inseamna ca primul/al doilea cuvant este mai 
+mare, deci sterg banda si scriu 0 pe banda pe pozitia respectiva cand primul cuvant este mai mare, altfel scriu 1. Cand cele 
+doua caractere sunt egale, pun # si pe pozitia respectiva din al doilea cuvant. Cand toate caracterele din ambele cuvinte sunt egale, 
+si urmatorul caracter din cel de-al doilea cuvant este #, inseamna ca am ajuns la sfarsitul cuvantului, deci ambele cuvinte sunt egale si 
+pun 1 la sfarsitul cuvantului al doilea.
