@@ -1,0 +1,50 @@
+user_event {
+    element : "input"
+    element : "auto-complete"
+    timestamp : 0
+} user_event[0]
+user_event {
+    element : "input"
+    element : "auto-complete"
+    timestamp : 1
+} user_event[1]
+user_event {
+    element : "dialog"
+    element : "suggestion"
+    timestamp : 2
+} user_event[2]
+user_event {
+    element : "input"
+    element : "auto-complete"
+    timestamp : 3
+} user_event[3]
+user_event {
+    element : "dialog"
+    element : "suggestion"
+    timestamp : 4
+} user_event[4]
+user_event {
+    element : "dialog"
+    element : "cancel"
+    timestamp : 7
+} user_event[5]
+user_event {
+    element : "input"
+    element : "auto-complete"
+    timestamp : 8
+} user_event[2]
+user_event {
+    element : "dialog"
+    element : "suggestion"
+    timestamp : 10
+} user_event[6]
+user_event {
+    element : "input"
+    element : "auto-complete"
+    timestamp : 13
+} user_event[7]
+user_event {
+    element : "dialog"
+    element : "cancel"
+    timestamp : 23
+} user_event[8]

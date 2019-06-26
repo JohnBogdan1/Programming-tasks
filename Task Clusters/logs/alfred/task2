@@ -1,0 +1,66 @@
+user_event {
+    element : "menu-button"
+    element : "new-file"
+    element : "java-class-final"
+    timestamp : 51
+} user_event[0]
+user_event {
+    element : "page"
+    element : "class"
+    timestamp : 52
+} user_event[1]
+user_event {
+    element : "menu"
+    element : "new-file"
+    element : "java-class-final-static"
+    timestamp : 55
+} user_event[2]
+user_event {
+    element : "page"
+    element : "class"
+    timestamp : 57
+} user_event[3]
+user_event {
+    element : "menu"
+    element : "new-file"
+    element : "java-class-final"
+    timestamp : 59
+} user_event[4]
+user_event {
+    element : "page"
+    element : "class"
+    timestamp : 60
+} user_event[5]
+user_event {
+    element : "page"
+    element : "class"
+    timestamp : 61
+} user_event[6]
+user_event {
+    element : "page"
+    element : "class"
+    timestamp : 62
+} user_event[7]
+user_event {
+    element : "menu"
+    element : "new-file"
+    element : "java-class-final"
+    timestamp : 66
+} user_event[8]
+user_event {
+    element : "menu"
+    element : "new-file"
+    element : "java-class-final"
+    timestamp : 73
+} user_event[9]
+user_event {
+    element : "page"
+    element : "class"
+    timestamp : 74
+} user_event[10]
+user_event {
+    element : "menu"
+    element : "new-file"
+    element : "java-class-final"
+    timestamp : 83
+} user_event[11]

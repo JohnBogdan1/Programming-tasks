@@ -1,0 +1,21 @@
+user_event {
+    element : "menu-button"
+    element : "file"
+    timestamp : 101
+} user_event[0]
+user_event {
+    element : "icon"
+    element : "expand"
+    timestamp : 104
+} user_event[1]
+user_event {
+    element : "menu"
+    element : "update-file"
+    element : "java-class-final"
+    timestamp : 106
+} user_event[2]
+user_event {
+    element : "dialog"
+    element : "suggestion"
+    timestamp : 115
+} user_event[3]
