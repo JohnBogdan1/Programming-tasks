@@ -1,0 +1,13 @@
+Nume: Ion Bogdan-Ionut
+Grupa: 332 CB
+
+In Windows am implementat asemanator ca pe Linux, numai ca am folosit 
+pentru do_in_parallel() si do_oon_pipe() thread-uri in care am rulat 
+procese. Am folosit thread-uri, ca sa pot parcurge arborele prin 
+apelari recursive ale functiei parse_command. Partea de parallel 
+mi-a reusit, dar la pipe am probleme cu inchiderea handle-urilor..
+M-am folosit de parametrul Handle *h din parse_command() si 
+parse_simple() pentru a trimite capetele pipe-urilor, dar nu 
+am reusit sa fac sa functioneze pe pipe-uri multiple.
+A trebuit sa ignor apelul pipe-ului, deoarece primeam timeout 
+la testele mai mari.

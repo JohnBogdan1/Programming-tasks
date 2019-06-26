@@ -1,0 +1,35 @@
+Name, Group
+Ion Bogdan-Ionut, 332CB
+
+Am implementat tema folosind pe post de coada o tabela (hash) de prioritati, 
+in care indicele din tabela reprezinta o prioritate de la 0 la SO_MAX_PRIO.
+Tabela are un vector de liste inlantuite in care se adauga in fiecare lista. 
+Cand se doreste obtinerea head-ului tabelei(precum head-ul de la coada, primul 
+element cu cea mai mare prioritate), parcurg vectorul de la cel mai mare 
+indice la cel mai mic si verific daca primul nod e != NULL. Pentru remove(pop), 
+ma duc la indicele din vector, verific daca e NULL si setez pointerul de la 
+acea pozitie din vector la nodul urmator al primului nod.
+
+In so_fork creez un thread (pointer la structura thread_t in care tin toate 
+informatiile asociate unui thread) si un semafor pe care il folosesc pentru a 
+verifica daca thread-ul nou creat a intrat in starea READY pe care il 
+adaug la structura de argumente data functiei pthread_create. De asemenea, la 
+argumente mai adaug si thread-ul nou creat si handler-ul dat ca parametru la 
+so_fork pentru a fi folosit de thread. Thread-ul parinte va porni thread-ul 
+copil si va astepta ca acesta sa il notifice. In thread-ul copil, creez un nou 
+semafor care va fi asociat thread-ului pe care il folosesc pentru a schimba 
+starile thread-ului. Adaug in tabela de prioritati si in lista thread-ul nou 
+creat, notific parintele si pun thread-ul in asteptare(sa fie planificat). 
+Exceptie face primul thread din sistem, care nu va astepta. Dupa ce este 
+planificat, thread-ul executa handler-ul iar apoi este planificat un nou thread. 
+Pentru a fi planificat thread-ul copil, parintele face un check_scheduler care 
+preia head-ul tabelei si compara prioritatea lui cu thread-ul curent care 
+ruleaza. Dupa ce thread-ul si-a incheiat executia, planific un nou thread. De 
+asemenea, atunci cand planific un thread nou, verific daca a expirat cuanta lui.
+
+In so_wait, setez device-ul IO dupa care asteapta thread-ul curent si ii resetez 
+cuanta de timp. Intre timp, planific un nou thread ca urmare a intreruperii 
+thread-ului curent. Iar in so_signal, trezesc toate thread-urile care asteapta 
+dupa device-ul IO(adica le adaug in tabela si planific un nou thread).
+
+In so_exec doar verific mereu daca e vreun thread care trebuie planificat sau nu.

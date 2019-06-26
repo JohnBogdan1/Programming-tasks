@@ -1,0 +1,38 @@
+Nume: Ion Bogdan-Ionut
+Grupa: 332 CB
+
+In functia parse_simple folosesc get_word pentru a obtine comanda intreaga din 
+s. In functie de tipul comenzii execut o comanda intern, setez o variabila de 
+mediu sau execut o comanda externa. Comenzi interne:
+	- exit/quit: returnez valoarea de exit SHELL_EXIT.
+	- cd: setez directorul curent folosind functia chdir(); de asemenea, 
+	inainte de executia comenzii realizez si redirectarile necesare, daca 
+	exista. Dupa executia comenzii cd, restaurez stdin, stdout si stderr
+	la valorile default(stdout si stderr la terminal).
+
+Setarea unei variabile de mediu o fac folosind setenv.
+
+Comenzile externe se ruleaza folosind execvp pe comanda(+argumente). Aceasta se 
+ruleaza in cadrul unui proces copil. Inainte de executia comenzii se realizeaza 
+redirectarile necesare. Folosesc get_argv pentru a obtine si argumentele 
+comenzii.
+
+Pentru a rula doua comenzi in paralel, creez doua procese, iar fiecare ruleaza 
+cate o comanda. Parintele asteapta cele doua procese sa isi incheie executia.
+
+Pipe-ul a fost implementat folosind tot doua procese: copil si parinte. In 
+parinte execut prima comanda si scriu in pipe, iar in copil execut cea de-a 
+doua comanda si citesc din pipe. A trebuit sa am grija sa nu fie vreunul dintre 
+capete deschis cand se realiza o citire/scriere deoarece ar fi ramas blocat.
+De asemenea, salvez stdin/stdout inainte de redirectarea in pipe pentru a fi 
+restaurati dupa executia comenzii, altfel procesul ar ramane blocat in 
+asteptarea unei operatii de citire/scriere.
+
+Operatiile conditionale si de secventiere se realizeaza prin apeluri recursive 
+ale functiei pe comenzile cmd1, respectiv cmd2.
+
+
+
+* Prin comanda se intelege o succesiune de apeluri recursive 
+care au loc in functia parse_command prin care se parcurge arborele pana se 
+ajunge la o comanda simpla.
